@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Gigzera</div>
+      <nav class="nav-links">
+        <a href="/Recuters/index.html">Home</a>
+        <a href="/Recuters/html/RecruiterPostaProjectPage.html">Post a Job</a>
+        <a href="/Recuters/html/aboutus.html">About Us</a>
+        <a href="javascript:void(0);" id="contactBtn">Contact Us</a>
+        <a href="/Recuters/html/gigzeraIndustriesPage.html">Industries</a>
+        <div class="profile-dropdown">
+          <div class="profile-trigger" onclick="toggleProfileMenu()">
+            <div class="profile-avatar">
+              <span id="profile-initials">Guest</span>
+            </div>
+            <i class="fa fa-caret-down"></i>
+          </div>
+          <div class="profile-menu" id="profile-menu">
+            <p id="profile-name-dropdown">Guest</p>
+            <p id="profile-email-dropdown">guest@example.com</p>
+            <hr />
+            <a href="/Recuters/html/profile.html"> Profile</a>
+            <hr />
+            <a href="#" class="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <script>
+      function toggleProfileMenu() {
+        const menu = document.getElementById("profile-menu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+
+      // Update profile from localStorage (sync with profile.html)
+      function updateProfileHeader() {
+        const initials = localStorage.getItem("profileInitials") || "Guest";
+        const name = localStorage.getItem("profileName") || "Guest";
+        const email =
+          localStorage.getItem("profileEmail") || "guest@example.com";
+
+        document.getElementById("profile-initials").textContent = initials;
+        document.getElementById("profile-name-dropdown").textContent = name;
+        document.getElementById("profile-email-dropdown").textContent = email;
+      }
+
+      // Call on page load
+      document.addEventListener("DOMContentLoaded", updateProfileHeader);
+    </script>
+
+    <!-- <div class="profile-dropdown">
+        <button class="profile-btn">
+          <span>Profile</span>
+          <div class="dropdown-icon">▼</div>
+        </button>
+        <div class="dropdown-content">
+          <a href="/Recuters/html/profile.html" id="myProfile">My Profile</a>
+          <a href="/Recuters/index.html">Logout</a>
+        </div>
+      </div> -->
+
+    <script src="/Recuters/javascript/profile.js"></script>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="logo-section">
+          <img
+            src="https://cdn.yellowmessenger.com/Zemat0WEws401735194467167.png"
+            alt="Gigzera"
+          />
+          <p>Next level!</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="company-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Industries</a></li>
+          </ul>
+        </div>
+
+        <div class="contact-info">
+          <h3>Contact</h3>
+          <p><i class="far fa-envelope"></i> contact@gigzera.com</p>
+          <p><i class="fas fa-phone"></i> 8431134449</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 006,Sprinkles, RGA Tech Park,
+            Carmelaram, Kodathi, Sarjapur Rd, Bengaluru Karnataka 560035
+          </p>
+        </div>
+      </div>
+      <div class="copyright">© 2025 Gigzera. All rights reserved.</div>
+    </footer>
+  </body>
+</html>
